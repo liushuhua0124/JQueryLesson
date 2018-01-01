@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>query.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("input[type='button']").click(function() {
+				var addIp = $("#addIp").val();
+				var url = "http://restapi.amap.com/v3/ip";
+				
+				$.get(url,"key=9c18ccbdec56196488736dfbe19f40fe&ip="+addIp,function(msg){
+					var province = msg.province;
+					var city = msg.city;
+					alert(province+"-----"+city);
+				});
+			});
+		});
+	</script>
+	
+	
+  </head>
+  
+  <body>
+	<input id="addIp" type="text" />
+	<input type="button" value="查询地址" />
+  </body>
+</html>
